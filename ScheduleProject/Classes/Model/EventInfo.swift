@@ -12,7 +12,7 @@ class EventInfo: NSObject, AMapSearchDelegate {
     
     var name: String!
     var address: String?
-    var miles: String = "（显示公里数）"
+    var distance: String = "（显示公里数）"
     var eta: String = "(显示ETA时间)"
     var arriveTime: String = "(显示抵达时间)"
     var startTime: Date!
@@ -42,7 +42,7 @@ class EventInfo: NSObject, AMapSearchDelegate {
     init(event: EKEvent) {
         self.name = event.title
         self.address = event.structuredLocation?.title
-        self.miles = ""
+        self.distance = ""
         self.eta = ""
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "M月d日 HH:mm"
@@ -70,7 +70,7 @@ class EventInfo: NSObject, AMapSearchDelegate {
         if response.results.first != nil {
             let result = response.results.first!
             if (result.info != nil) {
-                miles = String(result.distance)
+                distance = String(result.distance)
                 eta = String(result.duration)
 //                self.view.makeToast(String.init(format: "distance search failed :%@", result.info), duration: 1.0)
             }

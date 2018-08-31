@@ -15,11 +15,14 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
     @IBOutlet weak var searchBar: UISearchBar!
     
     var search: AMapSearchAPI!
-    var searchResults: [AMapPOI]?
+    var searchResults: [AMapPOI]? {
+        didSet {
+            searchResultTableView.reloadData()
+        }
+    }
     
     lazy var locationManager = AMapLocationManager()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         initSearch()
@@ -140,11 +143,12 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
         if keyword == nil || keyword! == "" {
             return
         }
-        
+        let userLocation = mapView.userLocation.coordinate
         let request = AMapPOIKeywordsSearchRequest()
         request.keywords = keyword
         request.requireExtension = true
-//        request.city = "北京"
+    
+        request.location = AMapGeoPoint.location(withLatitude: CGFloat(userLocation.latitude), longitude: CGFloat(userLocation.longitude))
         search.aMapPOIKeywordsSearch(request)
     }
     
@@ -172,16 +176,13 @@ extension DestinationViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "demoCellIdentifier"
-        
-        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
-            cell?.textLabel?.text = searchResults?[indexPath.row].name ?? ""
-            cell?.detailTextLabel?.text = searchResults?[indexPath.row].address ?? ""
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
         cell?.selectionStyle = .none
-
+        cell?.textLabel?.text = searchResults?[indexPath.row].name ?? ""
+        cell?.detailTextLabel?.text = searchResults?[indexPath.row].address ?? ""
         return cell!
     }
     
@@ -225,14 +226,10 @@ extension DestinationViewController {
     func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
         
         mapView.removeAnnotations(mapView.annotations)
-        
         if response.count == 0 {
             return
         }
-        
-        
         searchResults = response.pois
-        searchResultTableView.reloadData()
         
         var annos = Array<MAPointAnnotation>()
         for aPOI in response.pois {

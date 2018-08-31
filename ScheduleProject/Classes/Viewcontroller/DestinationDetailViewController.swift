@@ -51,7 +51,7 @@ class DestinationDetailViewController: UIViewController {
     func initViews() {
         nameLabel.text = detailInfo.name
         addressLabel.text = detailInfo.address
-        milesLabel.text = detailInfo.miles
+        milesLabel.text = detailInfo.distance
         ETALabel.text = detailInfo.eta
         arriveTimeLabel.text = detailInfo.arriveTime
     }

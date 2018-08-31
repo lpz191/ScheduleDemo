@@ -25,7 +25,7 @@ class ActivityTableViewCell: UITableViewCell {
             addressLabel.text = newValue.address
             ETALabel.text = newValue.eta
             arriveTimeLabel.text = newValue.arriveTime
-            distanceLabel.text = newValue.miles
+            distanceLabel.text = newValue.distance
         }
         get {
             return _eventInfo
