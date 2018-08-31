@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KgY-S3-MIB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Destination-->
+        <scene sceneID="8Jp-qZ-yeZ">
+            <objects>
+                <viewController id="KgY-S3-MIB" customClass="DestinationViewController" customModule="ScheduleProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZtF-aA-aPX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QUj-1Z-7V8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KgY-S3-MIB" id="RwW-EC-vW6"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CFX-rX-Hkk">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="KgY-S3-MIB" id="V30-sk-3o9"/>
+                                    <outlet property="delegate" destination="KgY-S3-MIB" id="6RZ-2L-SJe"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abc-Mz-Nhx" customClass="MAMapView">
+                                <rect key="frame" x="0.0" y="76" width="375" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Abc-Mz-Nhx" secondAttribute="height" id="TmG-Y7-TQq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QUj-1Z-7V8" firstAttribute="trailing" secondItem="3e7-gG-9d4" secondAttribute="trailing" id="Bxp-zX-rTd"/>
+                            <constraint firstItem="CFX-rX-Hkk" firstAttribute="top" secondItem="Abc-Mz-Nhx" secondAttribute="bottom" id="PVX-Og-aao"/>
+                            <constraint firstItem="3e7-gG-9d4" firstAttribute="top" secondItem="QUj-1Z-7V8" secondAttribute="top" id="Srh-b5-pVf"/>
+                            <constraint firstAttribute="bottom" secondItem="CFX-rX-Hkk" secondAttribute="bottom" id="bba-8R-kXP"/>
+                            <constraint firstItem="QUj-1Z-7V8" firstAttribute="leading" secondItem="3e7-gG-9d4" secondAttribute="leading" id="c5b-LH-ZFk"/>
+                            <constraint firstItem="CFX-rX-Hkk" firstAttribute="leading" secondItem="3e7-gG-9d4" secondAttribute="leading" id="lOG-Ao-zHz"/>
+                            <constraint firstItem="Abc-Mz-Nhx" firstAttribute="top" secondItem="QUj-1Z-7V8" secondAttribute="bottom" id="qno-Q1-54X"/>
+                            <constraint firstItem="3e7-gG-9d4" firstAttribute="trailing" secondItem="Abc-Mz-Nhx" secondAttribute="trailing" id="s7L-b2-mV3"/>
+                            <constraint firstItem="Abc-Mz-Nhx" firstAttribute="leading" secondItem="3e7-gG-9d4" secondAttribute="leading" id="wFk-Hm-eMi"/>
+                            <constraint firstItem="3e7-gG-9d4" firstAttribute="trailing" secondItem="CFX-rX-Hkk" secondAttribute="trailing" id="woJ-js-qcQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3e7-gG-9d4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Destination" id="mGo-ZH-lNX"/>
+                    <connections>
+                        <outlet property="mapView" destination="Abc-Mz-Nhx" id="3zP-Q6-Ifr"/>
+                        <outlet property="searchBar" destination="QUj-1Z-7V8" id="oZy-Vw-2be"/>
+                        <outlet property="searchResultTableView" destination="CFX-rX-Hkk" id="Wwk-Cn-X62"/>
+                        <segue destination="Hsc-Mc-6e3" kind="show" identifier="destinationDetail" id="M0w-Mb-fra"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Uo-Mr-TA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="-566"/>
+        </scene>
+        <!--DestinationDetail-->
+        <scene sceneID="gZU-HO-Hzf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DestinationDetail" id="Hsc-Mc-6e3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WM1-5U-oTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="-602"/>
+        </scene>
+    </scenes>
+</document>
