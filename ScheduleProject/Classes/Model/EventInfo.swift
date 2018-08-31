@@ -15,7 +15,13 @@ class EventInfo: NSObject, AMapSearchDelegate {
     var distance: String = "（显示公里数）"
     var eta: String = "(显示ETA时间)"
     var arriveTime: String = "(显示抵达时间)"
-    var startTime: Date!
+    var startTime: Date! {
+        didSet {
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = "M月d日 HH:mm"
+            arriveTime = dateFormat.string(from: startTime) + "抵达"
+        }
+    }
     var city: String!
     var isArranged: Bool!
     var location : CLLocationCoordinate2D! {
@@ -32,10 +38,11 @@ class EventInfo: NSObject, AMapSearchDelegate {
     
     private let geoCoder = CLGeocoder()
     
-    init(name: String, address: String, arriveTime: String, startTime: Date) {
+    init(name: String, address: String, location: CLLocationCoordinate2D, startTime: Date) {
         self.name = name
-        self.arriveTime = arriveTime
         self.startTime = startTime
+        self.address = address
+        self.location = location
         self.isArranged = false
     }
     
@@ -44,10 +51,7 @@ class EventInfo: NSObject, AMapSearchDelegate {
         self.address = event.structuredLocation?.title
         self.distance = ""
         self.eta = ""
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "M月d日 HH:mm"
         self.startTime = event.startDate
-        self.arriveTime = dateFormat.string(from: event.startDate) + "抵达"
         self.location = (event.structuredLocation?.geoLocation?.coordinate)!
         self.isArranged = true
     }

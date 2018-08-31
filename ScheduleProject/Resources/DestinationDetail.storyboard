@@ -77,6 +77,7 @@
                                         <state key="normal" title="出发"/>
                                         <connections>
                                             <action selector="goClicked:" destination="2Lx-Lz-LTx" eventType="touchUpInside" id="7qS-iJ-aMr"/>
+                                            <segue destination="YQU-AQ-bXU" kind="presentation" identifier="arrangeSchedule" id="Z4f-lX-9ZI"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLm-U9-XuH" userLabel="View2">
@@ -160,6 +161,7 @@
                     <connections>
                         <outlet property="ETALabel" destination="2WV-Dk-bdV" id="zrv-aL-qEA"/>
                         <outlet property="addressLabel" destination="4ag-mi-o19" id="te5-wK-jTb"/>
+                        <outlet property="arrangeButton" destination="jDo-2R-SNY" id="qR7-4n-2lv"/>
                         <outlet property="arriveTimeLabel" destination="dfo-aE-gL0" id="NF9-i6-fwj"/>
                         <outlet property="mapView" destination="XBx-LS-6b3" id="EcV-3s-57d"/>
                         <outlet property="milesLabel" destination="Jee-m4-fOj" id="xp5-9G-Vlc"/>
@@ -169,6 +171,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcE-bs-LBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="-602.24887556221893"/>
+        </scene>
+        <!--ArrangeSchedule-->
+        <scene sceneID="N0O-YM-8Fl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ArrangeSchedule" id="YQU-AQ-bXU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kb8-zF-fdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239" y="-602"/>
         </scene>
     </scenes>
 </document>

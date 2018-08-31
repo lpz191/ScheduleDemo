@@ -16,6 +16,7 @@ class DestinationDetailViewController: UIViewController {
     @IBOutlet weak var milesLabel: UILabel!
     @IBOutlet weak var ETALabel: UILabel!
     @IBOutlet weak var arriveTimeLabel: UILabel!
+    @IBOutlet weak var arrangeButton: UIButton!
     
     var detailInfo : EventInfo!
     
@@ -38,7 +39,7 @@ class DestinationDetailViewController: UIViewController {
             annotation.coordinate = location
             annotation.title = detailInfo.name
             annotation.subtitle = detailInfo.address
-            /* Remove prior annotation. */
+
             self.mapView.removeAnnotation(self.poiAnnotation)
             self.mapView.addAnnotation(annotation)
             self.mapView.selectAnnotation(annotation, animated: true)
@@ -54,6 +55,7 @@ class DestinationDetailViewController: UIViewController {
         milesLabel.text = detailInfo.distance
         ETALabel.text = detailInfo.eta
         arriveTimeLabel.text = detailInfo.arriveTime
+        arrangeButton.isHidden = detailInfo.isArranged
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,14 +64,22 @@ class DestinationDetailViewController: UIViewController {
     }
 
     @IBAction func reserveClicked(_ sender: Any) {
-        
+        SingleEvents.shared.events.append(detailInfo)
+        navigationController?.tabBarController?.selectedIndex = 1
     }
     
     @IBAction func arrangeClicked(_ sender: Any) {
-        
+        performSegue(withIdentifier: "arrangeSchedule", sender: detailInfo)
     }
     
     @IBAction func goClicked(_ sender: Any) {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "arrangeSchedule" {
+            let vc = segue.destination as! ArrangeScheduleViewController
+            vc.eventInfo = sender as! EventInfo
+        }
     }
 }

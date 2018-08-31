@@ -10,7 +10,11 @@ import UIKit
 
 class ActivityViewController: UITableViewController {
 
-    var events = SingleEvents.events()
+    var events: [EventInfo]! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,7 @@ class ActivityViewController: UITableViewController {
     }
     
     private func dealEvent() {
+        events = SingleEvents.events()
         let eventStore = EKEventStore()
         let startDate = Date().addingTimeInterval(0)
         let endDate = Date().addingTimeInterval(3600 * 24 * 90)

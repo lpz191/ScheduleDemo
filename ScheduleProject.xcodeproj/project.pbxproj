@@ -26,6 +26,8 @@
 		EC5167892137C9AD0074CB5D /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5167832137C9AD0074CB5D /* ActivityViewController.swift */; };
 		EC51678A2137C9AD0074CB5D /* DestinationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5167842137C9AD0074CB5D /* DestinationDetailViewController.swift */; };
 		EC51678B2137C9AD0074CB5D /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5167852137C9AD0074CB5D /* DestinationViewController.swift */; };
+		EC51678F213930890074CB5D /* ArrangeScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51678E213930890074CB5D /* ArrangeScheduleViewController.swift */; };
+		EC516791213930BA0074CB5D /* ArrangeSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC516790213930BA0074CB5D /* ArrangeSchedule.storyboard */; };
 		EC78E52B212BDF37005F1AFB /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E529212BDF37005F1AFB /* AMapFoundationKit.framework */; };
 		EC78E52C212BDF37005F1AFB /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E52A212BDF37005F1AFB /* AMapSearchKit.framework */; };
 		EC78E52E212BDFDD005F1AFB /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E52D212BDFDD005F1AFB /* MAMapKit.framework */; };
@@ -65,6 +67,8 @@
 		EC5167832137C9AD0074CB5D /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		EC5167842137C9AD0074CB5D /* DestinationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationDetailViewController.swift; sourceTree = "<group>"; };
 		EC5167852137C9AD0074CB5D /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		EC51678E213930890074CB5D /* ArrangeScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeScheduleViewController.swift; sourceTree = "<group>"; };
+		EC516790213930BA0074CB5D /* ArrangeSchedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArrangeSchedule.storyboard; sourceTree = "<group>"; };
 		EC78E529212BDF37005F1AFB /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		EC78E52A212BDF37005F1AFB /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		EC78E52D212BDFDD005F1AFB /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				EC00C4AE212E93150028439D /* Destination.storyboard */,
 				EC00C4AF212E93150028439D /* LaunchScreen.storyboard */,
 				EC00C4B0212E93150028439D /* DestinationDetail.storyboard */,
+				EC516790213930BA0074CB5D /* ArrangeSchedule.storyboard */,
 				EC00C4B1212E93150028439D /* Assets.xcassets */,
 				EC00C4B3212E93150028439D /* Main.storyboard */,
 				EC00C4C42130034F0028439D /* Activity.storyboard */,
@@ -163,6 +168,7 @@
 				EC5167832137C9AD0074CB5D /* ActivityViewController.swift */,
 				EC5167842137C9AD0074CB5D /* DestinationDetailViewController.swift */,
 				EC5167852137C9AD0074CB5D /* DestinationViewController.swift */,
+				EC51678E213930890074CB5D /* ArrangeScheduleViewController.swift */,
 			);
 			path = Viewcontroller;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				EC00C4BF212E93150028439D /* Main.storyboard in Resources */,
 				EC00C4BC212E93150028439D /* DestinationDetail.storyboard in Resources */,
 				EC00C4C1212E93150028439D /* Info.plist in Resources */,
+				EC516791213930BA0074CB5D /* ArrangeSchedule.storyboard in Resources */,
 				EC00C4BB212E93150028439D /* LaunchScreen.storyboard in Resources */,
 				EC78E550212D34E4005F1AFB /* AMap.bundle in Resources */,
 				EC00C4BA212E93150028439D /* Destination.storyboard in Resources */,
@@ -327,6 +334,7 @@
 				EC5167892137C9AD0074CB5D /* ActivityViewController.swift in Sources */,
 				EC5167862137C9AD0074CB5D /* ActivityTableViewCell.swift in Sources */,
 				EC51678B2137C9AD0074CB5D /* DestinationViewController.swift in Sources */,
+				EC51678F213930890074CB5D /* ArrangeScheduleViewController.swift in Sources */,
 				EC51677C2137BB9C0074CB5D /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

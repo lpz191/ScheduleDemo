@@ -128,7 +128,7 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
         guard let subtitle = view.annotation.subtitle else { return  }
         let locationInfo = LocationInfo(name: view.annotation.title ?? "", location: view.annotation.coordinate , address: subtitle ?? "", city: "")
-        performSegue(withIdentifier: "destinationDetail", sender: locationInfo)
+        performSegue(withIdentifier: "destinationDetail", sender: locationInfo.eventInfo)
         
     }
 
