@@ -28,7 +28,7 @@ class ActivityViewController: UITableViewController {
     }
     
     private func dealEvent() {
-        events = SingleEvents.events()
+        events = DMUserDefaults.events
         let eventStore = EKEventStore()
         let startDate = Date().addingTimeInterval(0)
         let endDate = Date().addingTimeInterval(3600 * 24 * 90)

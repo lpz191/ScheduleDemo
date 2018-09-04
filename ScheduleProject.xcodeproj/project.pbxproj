@@ -45,6 +45,9 @@
 		EC78E54C212D14E9005F1AFB /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E54B212D14E9005F1AFB /* libstdc++.6.0.9.tbd */; };
 		EC78E54E212D14F7005F1AFB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E54D212D14F7005F1AFB /* libc++.tbd */; };
 		EC78E550212D34E4005F1AFB /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC78E54F212D34E4005F1AFB /* AMap.bundle */; };
+		ECA29D21213E7C2A00006F67 /* SingleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA29D20213E7C2A00006F67 /* SingleObject.swift */; };
+		ECA29D23213E7C4500006F67 /* DMUserdefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA29D22213E7C4500006F67 /* DMUserdefaults.swift */; };
+		ECA29D26213E853C00006F67 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA29D25213E853C00006F67 /* Array+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,9 @@
 		EC78E54D212D14F7005F1AFB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		EC78E54F212D34E4005F1AFB /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		EC9A4C74212BB7C100A3CA30 /* ScheduleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECA29D20213E7C2A00006F67 /* SingleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleObject.swift; sourceTree = "<group>"; };
+		ECA29D22213E7C4500006F67 /* DMUserdefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUserdefaults.swift; sourceTree = "<group>"; };
+		ECA29D25213E853C00006F67 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,8 @@
 		EC00C4A8212E93150028439D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ECA29D24213E852F00006F67 /* Extensions */,
+				ECA29D1F213E7C0B00006F67 /* Tools */,
 				EC51677F2137C9AD0074CB5D /* Model */,
 				EC51677D2137C9AD0074CB5D /* View */,
 				EC5167822137C9AD0074CB5D /* Viewcontroller */,
@@ -244,6 +252,24 @@
 			path = ScheduleProject;
 			sourceTree = "<group>";
 		};
+		ECA29D1F213E7C0B00006F67 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ECA29D20213E7C2A00006F67 /* SingleObject.swift */,
+				ECA29D22213E7C4500006F67 /* DMUserdefaults.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		ECA29D24213E852F00006F67 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECA29D25213E853C00006F67 /* Array+Extension.swift */,
+			);
+			name = Extensions;
+			path = ScheduleProject/Extensions;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,12 +355,15 @@
 				EC5167882137C9AD0074CB5D /* LocationInfo.swift in Sources */,
 				EC5167872137C9AD0074CB5D /* EventInfo.swift in Sources */,
 				EC00C4B8212E93150028439D /* AppDelegate.swift in Sources */,
+				ECA29D23213E7C4500006F67 /* DMUserdefaults.swift in Sources */,
 				EC78E535212C05C0005F1AFB /* ApiKey.swift in Sources */,
 				EC51678A2137C9AD0074CB5D /* DestinationDetailViewController.swift in Sources */,
 				EC5167892137C9AD0074CB5D /* ActivityViewController.swift in Sources */,
+				ECA29D21213E7C2A00006F67 /* SingleObject.swift in Sources */,
 				EC5167862137C9AD0074CB5D /* ActivityTableViewCell.swift in Sources */,
 				EC51678B2137C9AD0074CB5D /* DestinationViewController.swift in Sources */,
 				EC51678F213930890074CB5D /* ArrangeScheduleViewController.swift in Sources */,
+				ECA29D26213E853C00006F67 /* Array+Extension.swift in Sources */,
 				EC51677C2137BB9C0074CB5D /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

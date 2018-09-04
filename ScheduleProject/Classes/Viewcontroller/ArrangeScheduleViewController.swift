@@ -15,6 +15,8 @@ class ArrangeScheduleViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    weak var delegate: DestinationDetailViewController?
+    
     var eventInfo: EventInfo!
     
     override func viewDidLoad() {
@@ -30,9 +32,8 @@ class ArrangeScheduleViewController: UIViewController {
         dismiss(animated: true) {
             self.eventInfo.startTime = self.datePicker.date
             self.eventInfo.isArranged = true
-            SingleEvents.shared.events.append(self.eventInfo)
-            
-//            self.presentedViewController?.navigationController?.tabBarController?.selectedIndex = 1
+            DMUserDefaults.events.append(self.eventInfo)
+            self.delegate?.navigationController?.tabBarController?.selectedIndex = 1
         }
     }
     

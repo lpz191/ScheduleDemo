@@ -32,7 +32,8 @@ class DestinationDetailViewController: UIViewController {
     func initMapView() {
         
         navigationItem.title = detailInfo.name ?? "当前位置"
-        if let location = detailInfo.location {
+        if let latitude = detailInfo.latitude, let longitude = detailInfo.longitude {
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             mapView.setCenter(location, animated: false)
             mapView.zoomLevel = 13
             let annotation = MAPointAnnotation()
@@ -64,7 +65,7 @@ class DestinationDetailViewController: UIViewController {
     }
 
     @IBAction func reserveClicked(_ sender: Any) {
-        SingleEvents.shared.events.append(detailInfo)
+        DMUserDefaults.events.append(detailInfo)
         navigationController?.tabBarController?.selectedIndex = 1
     }
     
@@ -80,6 +81,7 @@ class DestinationDetailViewController: UIViewController {
         if segue.identifier == "arrangeSchedule" {
             let vc = segue.destination as! ArrangeScheduleViewController
             vc.eventInfo = sender as! EventInfo
+            vc.delegate = self
         }
     }
 }

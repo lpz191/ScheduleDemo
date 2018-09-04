@@ -57,7 +57,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIi-jA-dJI">
-                                            <rect key="frame" x="318" y="48.5" width="42" height="21"/>
+                                            <rect key="frame" x="318" y="84.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -68,16 +68,15 @@
                                         <constraint firstItem="z5R-8v-Vne" firstAttribute="top" secondItem="AxZ-ib-xIU" secondAttribute="bottom" constant="15" id="89Z-3k-HWb"/>
                                         <constraint firstItem="AxZ-ib-xIU" firstAttribute="top" secondItem="fkA-lu-h9a" secondAttribute="bottom" constant="15" id="8zJ-3I-Lth"/>
                                         <constraint firstItem="z5R-8v-Vne" firstAttribute="leading" secondItem="AxZ-ib-xIU" secondAttribute="leading" id="MGa-Pw-gR5"/>
-                                        <constraint firstItem="vIi-jA-dJI" firstAttribute="bottom" secondItem="AxZ-ib-xIU" secondAttribute="bottom" id="Nnr-ZH-vtV"/>
                                         <constraint firstAttribute="trailing" secondItem="vIi-jA-dJI" secondAttribute="trailing" constant="15" id="T3e-SX-a05"/>
                                         <constraint firstItem="Irb-VL-ioX" firstAttribute="centerX" secondItem="vIi-jA-dJI" secondAttribute="centerX" id="TuK-FG-1A6"/>
                                         <constraint firstAttribute="bottom" secondItem="BfV-Rf-MHq" secondAttribute="bottom" constant="15" id="UQv-0k-IC5"/>
+                                        <constraint firstItem="vIi-jA-dJI" firstAttribute="top" secondItem="z5R-8v-Vne" secondAttribute="top" id="aWr-LD-Jae"/>
                                         <constraint firstItem="Irb-VL-ioX" firstAttribute="centerY" secondItem="BfV-Rf-MHq" secondAttribute="centerY" id="cdd-gW-2dB"/>
                                         <constraint firstItem="BfV-Rf-MHq" firstAttribute="leading" secondItem="z5R-8v-Vne" secondAttribute="leading" id="jMJ-mJ-RIq"/>
                                         <constraint firstItem="fkA-lu-h9a" firstAttribute="top" secondItem="HmD-FO-m7N" secondAttribute="top" constant="15" id="kyV-pm-gR5"/>
                                         <constraint firstItem="BfV-Rf-MHq" firstAttribute="top" secondItem="z5R-8v-Vne" secondAttribute="bottom" constant="15" id="rvQ-rS-WZ0"/>
                                         <constraint firstItem="fkA-lu-h9a" firstAttribute="leading" secondItem="HmD-FO-m7N" secondAttribute="leading" constant="15" id="zAd-DG-yrg"/>
-                                        <constraint firstItem="vIi-jA-dJI" firstAttribute="top" secondItem="AxZ-ib-xIU" secondAttribute="top" id="zgL-1u-b2h"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

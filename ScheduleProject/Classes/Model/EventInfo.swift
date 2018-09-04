@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventInfo: NSObject, AMapSearchDelegate {
+class EventInfo: NSObject, NSCoding, AMapSearchDelegate {
     
     var name: String!
     var address: String?
@@ -24,11 +24,8 @@ class EventInfo: NSObject, AMapSearchDelegate {
     }
     var city: String!
     var isArranged: Bool!
-    var location : CLLocationCoordinate2D! {
-        didSet {
-            searchDistance(from: SingleEvents.userLocation(), to: location)
-        }
-    }
+    var latitude : Double!
+    var longitude: Double!
     
     lazy var search: AMapSearchAPI = {
         let search = AMapSearchAPI()
@@ -42,7 +39,8 @@ class EventInfo: NSObject, AMapSearchDelegate {
         self.name = name
         self.startTime = startTime
         self.address = address
-        self.location = location
+        self.latitude = location.latitude
+        self.longitude = location.longitude
         self.isArranged = false
     }
     
@@ -52,8 +50,36 @@ class EventInfo: NSObject, AMapSearchDelegate {
         self.distance = ""
         self.eta = ""
         self.startTime = event.startDate
-        self.location = (event.structuredLocation?.geoLocation?.coordinate)!
+        let location = (event.structuredLocation?.geoLocation?.coordinate)!
+        self.longitude = location.longitude
+        self.latitude = location.latitude
         self.isArranged = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
+        address = aDecoder.decodeObject(forKey: "address") as? String ?? ""
+        distance = aDecoder.decodeObject(forKey: "distance") as? String ?? ""
+        eta = aDecoder.decodeObject(forKey: "eta") as? String ?? ""
+        arriveTime = aDecoder.decodeObject(forKey: "arriveTime") as? String ?? ""
+        startTime = aDecoder.decodeObject(forKey: "startTime") as? Date ?? Date()
+        city = aDecoder.decodeObject(forKey: "city") as? String ?? ""
+        isArranged = aDecoder.decodeObject(forKey: "isArranged") as? Bool ?? false
+        latitude = aDecoder.decodeObject(forKey: "latitude") as? Double ?? 0
+        longitude = aDecoder.decodeObject(forKey: "longitude") as? Double ?? 0
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(address, forKey: "address")
+        aCoder.encode(distance, forKey: "distance")
+        aCoder.encode(eta, forKey: "eta")
+        aCoder.encode(arriveTime, forKey: "arriveTime")
+        aCoder.encode(startTime, forKey: "startTime")
+        aCoder.encode(city, forKey: "city")
+        aCoder.encode(isArranged, forKey: "isArranged")
+        aCoder.encode(latitude, forKey: "latitude")
+        aCoder.encode(longitude, forKey: "longitude")
     }
     
     func searchDistance(from starCoordinate: CLLocationCoordinate2D, to endCoordinate:CLLocationCoordinate2D) {
@@ -87,20 +113,3 @@ class EventInfo: NSObject, AMapSearchDelegate {
 }
 
 
-class SingleEvents: NSObject {
-    static let shared = SingleEvents(events: [], userLocation: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-    var events: [EventInfo]
-    var userLocation: CLLocationCoordinate2D
-    init(events: [EventInfo], userLocation: CLLocationCoordinate2D) {
-        self.events = events
-        self.userLocation = userLocation
-    }
-    
-    class func events() -> [EventInfo] {
-        return shared.events
-    }
-    
-    class func userLocation() -> CLLocationCoordinate2D {
-        return shared.userLocation
-    }
-}

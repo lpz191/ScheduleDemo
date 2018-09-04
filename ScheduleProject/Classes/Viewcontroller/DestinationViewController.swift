@@ -72,7 +72,7 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
         
         annotation.coordinate = touchPoi!.coordinate
         annotation.title      = touchPoi!.name
-        
+//        annotation.subtitle = touchPoi.
         return annotation;
     }
     
@@ -127,9 +127,8 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
     
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
         guard let subtitle = view.annotation.subtitle else { return  }
-        let locationInfo = LocationInfo(name: view.annotation.title ?? "", location: view.annotation.coordinate , address: subtitle ?? "", city: "")
+        let locationInfo = LocationInfo(name: view.annotation.title ?? "", location: view.annotation.coordinate, address: subtitle ?? "", city: "")
         performSegue(withIdentifier: "destinationDetail", sender: locationInfo.eventInfo)
-        
     }
 
     
@@ -154,7 +153,7 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
     
     func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!, reGeocode: AMapLocationReGeocode!) {
         if let location = location {
-            SingleEvents.shared.userLocation = location.coordinate
+//            SingleEvents.shared.userLocation = location.coordinate
             let annotation = MAPointAnnotation()
             annotation.coordinate = location.coordinate
             if let regeocode = reGeocode {
