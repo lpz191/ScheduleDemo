@@ -45,6 +45,7 @@
 		EC78E54C212D14E9005F1AFB /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E54B212D14E9005F1AFB /* libstdc++.6.0.9.tbd */; };
 		EC78E54E212D14F7005F1AFB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78E54D212D14F7005F1AFB /* libc++.tbd */; };
 		EC78E550212D34E4005F1AFB /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC78E54F212D34E4005F1AFB /* AMap.bundle */; };
+		EC886AA3214101A100850E37 /* SearchDistanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC886AA2214101A100850E37 /* SearchDistanceTool.swift */; };
 		ECA29D21213E7C2A00006F67 /* SingleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA29D20213E7C2A00006F67 /* SingleObject.swift */; };
 		ECA29D23213E7C4500006F67 /* DMUserdefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA29D22213E7C4500006F67 /* DMUserdefaults.swift */; };
 		ECA29D26213E853C00006F67 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA29D25213E853C00006F67 /* Array+Extension.swift */; };
@@ -89,6 +90,7 @@
 		EC78E54B212D14E9005F1AFB /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		EC78E54D212D14F7005F1AFB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		EC78E54F212D34E4005F1AFB /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		EC886AA2214101A100850E37 /* SearchDistanceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDistanceTool.swift; sourceTree = "<group>"; };
 		EC9A4C74212BB7C100A3CA30 /* ScheduleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA29D20213E7C2A00006F67 /* SingleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleObject.swift; sourceTree = "<group>"; };
 		ECA29D22213E7C4500006F67 /* DMUserdefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUserdefaults.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			children = (
 				ECA29D20213E7C2A00006F67 /* SingleObject.swift */,
 				ECA29D22213E7C4500006F67 /* DMUserdefaults.swift */,
+				EC886AA2214101A100850E37 /* SearchDistanceTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				ECA29D21213E7C2A00006F67 /* SingleObject.swift in Sources */,
 				EC5167862137C9AD0074CB5D /* ActivityTableViewCell.swift in Sources */,
 				EC51678B2137C9AD0074CB5D /* DestinationViewController.swift in Sources */,
+				EC886AA3214101A100850E37 /* SearchDistanceTool.swift in Sources */,
 				EC51678F213930890074CB5D /* ArrangeScheduleViewController.swift in Sources */,
 				ECA29D26213E853C00006F67 /* Array+Extension.swift in Sources */,
 				EC51677C2137BB9C0074CB5D /* Const.swift in Sources */,

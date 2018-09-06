@@ -40,7 +40,7 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
         mapView.delegate = self
         mapView.touchPOIEnabled = true
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .followWithHeading
+        mapView.userTrackingMode = .follow
     }
     
     func initSearch() {
@@ -72,7 +72,6 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
         
         annotation.coordinate = touchPoi!.coordinate
         annotation.title      = touchPoi!.name
-//        annotation.subtitle = touchPoi.
         return annotation;
     }
     
@@ -153,7 +152,7 @@ class DestinationViewController: UIViewController, MAMapViewDelegate, AMapSearch
     
     func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!, reGeocode: AMapLocationReGeocode!) {
         if let location = location {
-//            SingleEvents.shared.userLocation = location.coordinate
+            SingleObjects.shared.userLocation = location.coordinate
             let annotation = MAPointAnnotation()
             annotation.coordinate = location.coordinate
             if let regeocode = reGeocode {

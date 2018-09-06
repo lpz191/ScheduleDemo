@@ -18,14 +18,24 @@ class DestinationDetailViewController: UIViewController {
     @IBOutlet weak var arriveTimeLabel: UILabel!
     @IBOutlet weak var arrangeButton: UIButton!
     
-    var detailInfo : EventInfo!
+    var myContext: NSObject!
+    
+    var detailInfo: EventInfo!
     
     var poiAnnotation: MAPointAnnotation!
 
+    var observation: NSKeyValueObservation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initMapView()
+        
+        observation = detailInfo.observe(\.duration) { (eventInfo, _) in
+            self.ETALabel.text = eventInfo.eta
+            self.milesLabel.text = eventInfo.distance
+        }
+        
         initViews()
     }
 
@@ -53,8 +63,6 @@ class DestinationDetailViewController: UIViewController {
     func initViews() {
         nameLabel.text = detailInfo.name
         addressLabel.text = detailInfo.address
-        milesLabel.text = detailInfo.distance
-        ETALabel.text = detailInfo.eta
         arriveTimeLabel.text = detailInfo.arriveTime
         arrangeButton.isHidden = detailInfo.isArranged
     }

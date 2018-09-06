@@ -34,6 +34,7 @@ class ArrangeScheduleViewController: UIViewController {
             self.eventInfo.isArranged = true
             DMUserDefaults.events.append(self.eventInfo)
             self.delegate?.navigationController?.tabBarController?.selectedIndex = 1
+            self.delegate?.navigationController?.popViewController(animated: false)
         }
     }
     

@@ -45,6 +45,7 @@ class ActivityViewController: UITableViewController {
                 events.append(event)
             }
         }
+        events.sort { $0.arriveTime < $1.arriveTime }
     }
     
     private func calendarAuthority() {
@@ -58,17 +59,12 @@ class ActivityViewController: UITableViewController {
                 }
             }
         } else if eventStatus == .denied {
-            
+            let alert = UIAlertController(title: "当前日历服务不可用", message: "您还没有授权本应用使用日历，请到 设置 > 隐私 > 日历 中授权", preferredStyle: .alert)
+            let action = UIAlertAction(title: "确定", style: .default) { (action) in
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
-   
-//    //用户授权不允许
-//    else if (eventStatus == EKAuthorizationStatusDenied){
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"当前日历服务不可用" message:@"您还没有授权本应用使用日历,请到 设置 > 隐私 > 日历 中授权" preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//    }];
-//    [alert addAction:action];
-//    [self presentViewController:alert animated:YES completion:nil];
-//    }
     }
     
 }
