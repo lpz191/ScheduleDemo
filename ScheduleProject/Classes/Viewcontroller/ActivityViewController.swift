@@ -10,6 +10,8 @@ import UIKit
 
 class ActivityViewController: UITableViewController {
 
+    var observation: NSKeyValueObservation!
+
     var events: [EventInfo]! {
         didSet {
             tableView.reloadData()
@@ -35,17 +37,25 @@ class ActivityViewController: UITableViewController {
         let predicate = eventStore.predicateForEvents(withStart: startDate,
                                                        end: endDate, calendars: nil)
         let eventInfos = eventStore.events(matching: predicate)
-            .filter{$0.structuredLocation?.geoLocation != nil}
+            .filter{ $0.structuredLocation?.geoLocation != nil }
             .map { EventInfo(event: $0) }
-        
+        let eventNames = events.map{ $0.name }
+        let eventTimes = events.map{ $0.arriveTime }
         for event in eventInfos {
-            if events.contains(event) {
+            if eventNames.contains(event.name) && eventTimes.contains(event.arriveTime){
                 break
             } else {
                 events.append(event)
             }
         }
-        events.sort { $0.arriveTime < $1.arriveTime }
+        events.sort { $0.startTime < $1.startTime }
+        
+        for event in events {
+            observation = event.observe(\.duration, changeHandler: { [weak self]
+                (_, _) in
+                self?.tableView.reloadData()
+            })
+        }
     }
     
     private func calendarAuthority() {
@@ -95,6 +105,21 @@ extension ActivityViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let eventInfo = events[indexPath.row]
         performSegue(withIdentifier: "destinationDetail1", sender: eventInfo)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "取消行程"
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            events.remove(at: indexPath.row)
+            DMUserDefaults.events = events
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

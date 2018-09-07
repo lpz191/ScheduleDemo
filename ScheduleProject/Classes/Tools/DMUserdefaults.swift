@@ -26,6 +26,7 @@ class DMUserDefaults: NSObject {
                     newEvents.append(eventInfo)
                 }
             }
+            newEvents.sort { $0.startTime < $1.startTime }
             let data =  NSKeyedArchiver.archivedData(withRootObject: newEvents)
             userDefaultStandard.removeObject(forKey: singleEventKey)
             userDefaultStandard.set(data, forKey: singleEventKey)

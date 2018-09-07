@@ -65,6 +65,8 @@ class DestinationDetailViewController: UIViewController {
         addressLabel.text = detailInfo.address
         arriveTimeLabel.text = detailInfo.arriveTime
         arrangeButton.isHidden = detailInfo.isArranged
+        ETALabel.text = detailInfo.eta
+        milesLabel.text = detailInfo.distance
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +77,7 @@ class DestinationDetailViewController: UIViewController {
     @IBAction func reserveClicked(_ sender: Any) {
         DMUserDefaults.events.append(detailInfo)
         navigationController?.tabBarController?.selectedIndex = 1
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func arrangeClicked(_ sender: Any) {

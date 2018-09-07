@@ -11,7 +11,7 @@ import UIKit
 @objcMembers class EventInfo: NSObject, NSCoding, AMapSearchDelegate {
     
     var name: String!
-    var address: String?
+    var address: String!
     var city: String!
     var startTime: Date!
     var isArranged: Bool!
@@ -38,7 +38,7 @@ import UIKit
     
     var eta: String {
         var hour = duration / 3600
-        let minutes = duration / 60
+        let minutes = duration / 60 % 60
         if hour > 24 {
             let day = hour / 24
             hour = hour % 24
@@ -89,8 +89,8 @@ import UIKit
         isArranged = aDecoder.decodeObject(forKey: "isArranged") as? Bool ?? false
         latitude = aDecoder.decodeObject(forKey: "latitude") as? Double ?? 0
         longitude = aDecoder.decodeObject(forKey: "longitude") as? Double ?? 0
-        miles = aDecoder.decodeObject(forKey: "miles") as? Int ?? 0
-        duration = aDecoder.decodeObject(forKey: "duration") as? Int ?? 0
+        miles = aDecoder.decodeInteger(forKey: "miles")
+        duration = aDecoder.decodeInteger(forKey: "duration")
     }
     
     func encode(with aCoder: NSCoder) {
