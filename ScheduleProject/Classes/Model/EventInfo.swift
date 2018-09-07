@@ -15,6 +15,7 @@ import UIKit
     var city: String!
     var startTime: Date!
     var isArranged: Bool!
+    var isStored: Bool!
     var latitude : Double!
     var longitude: Double!
     
@@ -25,7 +26,7 @@ import UIKit
         if let time = startTime {
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "M月d日 HH:mm"
-            return dateFormat.string(from: time) + "抵达"
+            return dateFormat.string(from: time)
         } else {
             return "(显示抵达时间)"
         }
@@ -66,6 +67,7 @@ import UIKit
         self.latitude = location.latitude
         self.longitude = location.longitude
         self.isArranged = false
+        self.isStored = false
         self.searchDistance(from: SingleObjects.shared.userLocation, to: location)
     }
     
@@ -78,6 +80,7 @@ import UIKit
         self.longitude = location.longitude
         self.latitude = location.latitude
         self.isArranged = true
+        self.isStored = true
         self.searchDistance(from: SingleObjects.shared.userLocation, to: location)
     }
     
@@ -87,6 +90,7 @@ import UIKit
         startTime = aDecoder.decodeObject(forKey: "startTime") as? Date ?? Date()
         city = aDecoder.decodeObject(forKey: "city") as? String ?? ""
         isArranged = aDecoder.decodeObject(forKey: "isArranged") as? Bool ?? false
+        isStored = aDecoder.decodeObject(forKey: "isStored") as? Bool ?? false
         latitude = aDecoder.decodeObject(forKey: "latitude") as? Double ?? 0
         longitude = aDecoder.decodeObject(forKey: "longitude") as? Double ?? 0
         miles = aDecoder.decodeInteger(forKey: "miles")
@@ -99,6 +103,7 @@ import UIKit
         aCoder.encode(startTime, forKey: "startTime")
         aCoder.encode(city, forKey: "city")
         aCoder.encode(isArranged, forKey: "isArranged")
+        aCoder.encode(isStored, forKey: "isStored")
         aCoder.encode(latitude, forKey: "latitude")
         aCoder.encode(longitude, forKey: "longitude")
         aCoder.encode(miles, forKey: "miles")

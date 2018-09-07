@@ -16,7 +16,10 @@ class DestinationDetailViewController: UIViewController {
     @IBOutlet weak var milesLabel: UILabel!
     @IBOutlet weak var ETALabel: UILabel!
     @IBOutlet weak var arriveTimeLabel: UILabel!
-    @IBOutlet weak var arrangeButton: UIButton!
+    
+    @IBOutlet weak var arrangeView: UIView!
+    @IBOutlet weak var storedView: UIView!
+    
     
     var myContext: NSObject!
     
@@ -64,7 +67,8 @@ class DestinationDetailViewController: UIViewController {
         nameLabel.text = detailInfo.name
         addressLabel.text = detailInfo.address
         arriveTimeLabel.text = detailInfo.arriveTime
-        arrangeButton.isHidden = detailInfo.isArranged
+        arrangeView.isHidden = detailInfo.isArranged
+        storedView.isHidden = detailInfo.isStored
         ETALabel.text = detailInfo.eta
         milesLabel.text = detailInfo.distance
     }
