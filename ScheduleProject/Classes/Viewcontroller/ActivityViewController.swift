@@ -48,7 +48,13 @@ class ActivityViewController: UITableViewController {
                 events.append(event)
             }
         }
-        events.sort { $0.startTime < $1.startTime }
+        events.sort {
+            if let start0 = $0.startTime, let start1 = $1.startTime {
+                return start0 < start1
+            } else {
+                return true
+            }
+        }
         
         for event in events {
             observation = event.observe(\.duration, changeHandler: { [weak self]

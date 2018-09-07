@@ -25,10 +25,10 @@ import UIKit
     var arriveTime: String {
         if let time = startTime {
             let dateFormat = DateFormatter()
-            dateFormat.dateFormat = "M月d日 HH:mm"
+            dateFormat.dateFormat = "M月d日 HH:mm" + "抵达"
             return dateFormat.string(from: time)
         } else {
-            return "(显示抵达时间)"
+            return ""
         }
     }
 
@@ -59,7 +59,7 @@ import UIKit
     
     private let geoCoder = CLGeocoder()
     
-    init(name: String, address: String, location: CLLocationCoordinate2D, startTime: Date) {
+    init(name: String, address: String, location: CLLocationCoordinate2D, startTime: Date?) {
         super.init()
         self.name = name
         self.startTime = startTime
@@ -87,7 +87,7 @@ import UIKit
     required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
         address = aDecoder.decodeObject(forKey: "address") as? String ?? ""
-        startTime = aDecoder.decodeObject(forKey: "startTime") as? Date ?? Date()
+        startTime = aDecoder.decodeObject(forKey: "startTime") as? Date
         city = aDecoder.decodeObject(forKey: "city") as? String ?? ""
         isArranged = aDecoder.decodeObject(forKey: "isArranged") as? Bool ?? false
         isStored = aDecoder.decodeObject(forKey: "isStored") as? Bool ?? false

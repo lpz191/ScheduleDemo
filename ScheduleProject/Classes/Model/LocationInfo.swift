@@ -16,7 +16,7 @@ class LocationInfo: NSObject {
     var address : String
     
     var eventInfo: EventInfo {
-        return EventInfo(name: name, address: address,location: location, startTime: Date())
+        return EventInfo(name: name, address: address,location: location, startTime: nil)
     }
     
     init(name: String, location: CLLocationCoordinate2D, address: String, city: String) {

@@ -79,6 +79,7 @@ class DestinationDetailViewController: UIViewController {
     }
 
     @IBAction func reserveClicked(_ sender: Any) {
+        detailInfo.isStored = true
         DMUserDefaults.events.append(detailInfo)
         navigationController?.tabBarController?.selectedIndex = 1
         navigationController?.popViewController(animated: true)
